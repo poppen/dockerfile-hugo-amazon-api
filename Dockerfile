@@ -12,5 +12,5 @@ RUN cp hugo-amazon-api /app
 FROM alpine as runner
 ENV DOMAIN JP
 ENV PORT 8080
-COPY --from=builder ./app /
+COPY --from=builder /app /
 CMD /app -access "$ACCESS_KEY" -secret "$SECRET_KEY" -tag "$ASSOCIATE_TAG" -domain "$DOMAIN" -port "$PORT" -redis-url "$REDIS_URL"
